@@ -31,7 +31,7 @@ import (
 )
 
 var (
-	port = flag.Int("port", 50051, "The server port")
+	port = flag.Int("port", 50053, "The server port")
 )
 
 // server is used to implement helloworld.GreeterServer.
@@ -42,7 +42,7 @@ type server struct {
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	log.Printf("Received: %v", in.GetName())
-	return &pb.HelloReply{Message: "Hello " + in.GetName()}, nil
+	return &pb.HelloReply{Message: "Hello " + in.GetName() + ", what a wonderful day!"}, nil
 }
 
 func main() {
